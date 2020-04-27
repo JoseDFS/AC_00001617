@@ -31,8 +31,25 @@ lupi: 	mov	cl,"H"
 	mov	cl,"d"
 	mov	[208h],cl
 
+;---------------Ejercicio 2 -----------------------------------
+    	mov 	si, 0d
+        mov 	ax, 2d
+        mov 	cx, 2d
+celda1:  mul 	cx
+        mov 	[si+210h], ax
+        inc 	si
+        cmp 	ax, 256d
+        jb 	flag1
+
+celda2:  mul 	cx
+        inc 	si
+        mov 	[si+210h], ax
+        inc 	si
+        cmp 	si, 14d 
+        jb 	flag2
+        
+
 ;---------------Ejercicio 3------------------------------------
-	org 100h 
 	
 	mov	bx, 0d
 	mov	dx, 1d
@@ -43,13 +60,13 @@ lupi: 	mov	cl,"H"
         inc 	di
         mov 	[di+220h], dx
         inc 	di
-holi:	mov	ax, bx
+lupita:	mov	ax, bx
 	add	ax, dx
         mov 	[di+220h], ax
         inc 	di
 	mov	bx, dx
 	mov	dx, ax
 
-	Loop 	holi
+	Loop 	lupita
 
 	int	20h
